@@ -1,0 +1,105 @@
+# ==========================================
+# PART 1: The types with nothing "inside" them (int, float, bool)
+# ==========================================
+
+# An int holds a whole number without decimals.
+# You cannot add items to it or access items inside it because it holds a single value.
+age = 25
+print("Part 1 - Int:", age, type(age))
+
+# A float holds a number with a decimal point.
+# You cannot add items to it or access items inside it because it holds a single value.
+price = 19.99
+print("Part 1 - Float:", price, type(price))
+
+# A bool holds a truth value: either True or False.
+# You cannot add items to it or access items inside it because it holds a single value.
+is_registered = True
+print("Part 1 - Bool:", is_registered, type(is_registered))
+
+
+# ==========================================
+# PART 2: Look, but don't touch (str, tuple)
+# ==========================================
+
+# --- String ---
+my_string = "Python"
+print("Part 2 - String access by index [0]:", my_string[0])
+
+# Attempting to reassign a character gives a TypeError: 'str' object does not support item assignment
+# because strings are immutable in Python.
+# my_string[0] = "J"
+
+
+# --- Tuple ---
+my_tuple = (10, 20, 30)
+print("Part 2 - Tuple access by index [1]:", my_tuple[1])
+
+# Attempting to reassign a value gives a TypeError: 'tuple' object does not support item assignment
+# because tuples are immutable in Python.
+# my_tuple[0] = 99
+
+
+# ==========================================
+# PART 3: The one you can actually change (list)
+# ==========================================
+
+# List properties:
+# - Ordered: Yes, maintains the sequence of insertion.
+# - Indexed: Yes, elements can be accessed using [index].
+# - Mutable: Yes, elements can be modified, added, or removed in place.
+
+fruits = ["apple", "banana", "cherry"]
+print("Part 3 - List before append:", fruits)
+
+# Access one item by index
+print("Part 3 - Access item at index 0:", fruits[0])
+
+# Add a new item to the end using .append()
+fruits.append("orange")
+print("Part 3 - List after append:", fruits)
+
+
+# ==========================================
+# PART 4: Key -> value (dict)
+# ==========================================
+
+# Dictionary properties:
+# - Access values using keys, not numerical position/index.
+# - Mutable: You can add new key-value pairs or change existing values.
+
+student = {
+    "name": "Alex",
+    "age": 20,
+    "course": "Computer Science"
+}
+
+# Accessing a value by key
+print("Part 4 - Dict value for 'name':", student["name"])
+
+# Adding a new key-value pair
+student["grade"] = "A"
+print("Part 4 - Dict after adding new key-value pair:", student)
+
+
+# ==========================================
+# PART 5: The odd one out (set)
+# ==========================================
+
+# 1. Create a set with a duplicate item
+my_set = {1, 2, 2, 3}
+# Comment: Sets automatically remove duplicate values upon creation. Only unique elements are kept.
+print("Part 5 - Set (duplicates removed automatically):", my_set)
+
+# 2. Add a new item using .add()
+my_set.add(4)
+print("Part 5 - Set after .add():", my_set)
+
+# 3 & 4. Indexing error explanation:
+# Attempting to access an item by index like my_set[0] gives a TypeError: 'set' object is not subscriptable.
+# Sets are unordered, meaning Python does not maintain any guaranteed position or sequence for items in memory.
+# Therefore, positional indexing like [0] does not exist for sets.
+# my_set[0]
+
+# 5. Check membership using the 'in' keyword
+print("Part 5 - Check if 3 is in set:", 3 in my_set)
