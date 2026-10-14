@@ -1,0 +1,82 @@
+
+# Your Full Name
+
+# Part 1 — Ask the questions
+name = input("What is your full name? ")
+maths = float(input("What is your Mathematics score? "))
+english = float(input("What is your English score? "))
+computer = float(input("What is your Computer Studies score? "))
+minutes = int(input("How many minutes did you study this week? "))
+
+# Part 2 — Store the answers properly
+student = {
+    "name": name,
+    "scores": [maths, english, computer],
+    "minutes": minutes
+}
+
+# Part 3 — Do the arithmetic
+scores = student["scores"]
+total_score = sum(scores)
+average_score = total_score / len(scores)
+highest_score = max(scores)
+lowest_score = min(scores)
+score_gap = highest_score - lowest_score
+study_hours = student["minutes"] // 60
+remaining_minutes = student["minutes"] % 60
+
+# Part 4 — Ask Python yes/no questions
+passed = average_score >= 50
+no_weak_subject = lowest_score >= 40
+distinction = average_score >= 70 and lowest_score >= 50
+needs_support = average_score < 50 or lowest_score < 40
+studied_enough = study_hours >= 5
+failed = not passed
+
+# Part 5 — Print the result slip
+print("\n======== RESULT SLIP ========")
+print(f"Student : {student['name'].upper()}")
+print(f"Scores  : {student['scores']}")
+print(f"Total   : {total_score}")
+print(f"Average : {average_score:.1f}")
+print(f"Highest : {highest_score}   Lowest: {lowest_score}   Gap: {score_gap}")
+print(f"Studied : {study_hours} h {remaining_minutes} min")
+print("------------------------------")
+print(f"Passed          : {passed}")
+print(f"No weak subject : {no_weak_subject}")
+print(f"Distinction     : {distinction}")
+print(f"Needs support   : {needs_support}")
+print(f"Studied enough  : {studied_enough}")
+print(f"Failed          : {failed}")
+print("==============================")
+
+# Part 6 — Explain it in your own words
+# 1. I used float() for scores because a score can have a decimal.
+# I used int() for minutes because the question asks for whole minutes.
+
+# 2. The / operator gives normal division, while // gives whole-number
+# floor division. For example, 385 / 60 is 6.4166..., but 385 // 60 is 6.
+
+# 3. I use = to assign a value to a variable.
+# I use == to check whether two values are equal.
+
+# 4. I changed my Mathematics score from 80 to 40.
+# This can make distinction False if the new average is below 70
+# or if the lowest score becomes less than 50.
+
+# Sample run — example output for the scores 72, 58.5, 81 and 385 minutes:
+# ======== RESULT SLIP ========
+# Student : AMINA BELLO
+# Scores  : [72.0, 58.5, 81.0]
+# Total   : 211.5
+# Average : 70.5
+# Highest : 81.0   Lowest: 58.5   Gap: 22.5
+# Studied : 6 h 25 min
+# ------------------------------
+# Passed          : True
+# No weak subject : True
+# Distinction     : True
+# Needs support   : False
+# Studied enough  : True
+# Failed          : False
+# ==============================
